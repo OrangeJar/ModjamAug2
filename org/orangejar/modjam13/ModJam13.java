@@ -20,6 +20,9 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -71,9 +74,9 @@ public class ModJam13  {
  		 GameRegistry.registerTileEntity(TileEntityItem1911.class, "tileEntityItem1911");
  		 LanguageRegistry.addName(item1911, "1911");
  		 //EntityRegistry.registerModEntity(EntityBullet1911.class, "bullet1911", 10, this.instance, 32, 3, true);
- 		
          
-         
+ 		 EntityRegistry.registerGlobalEntityID(NPCWerWoolfWoofWoof.class, "WerWoolf", 929);
+ 		 registerEntityEgg(NPCWerWoolfWoofWoof.class, 0xffffff, 0x000010);
     }
     
     @EventHandler
@@ -81,5 +84,12 @@ public class ModJam13  {
             
     }
 	
-
+    public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) 
+	 {
+	  int id = 919;
+	  EntityList.IDtoClassMapping.put(id, entity);
+	  EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
+	 }
+    
+    
 }
