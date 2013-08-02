@@ -20,7 +20,7 @@ public class potionItem extends ItemBucketMilk {
 	public potionItem(int par1,int mark) {
 		super(par1);
 		// TODO Auto-generated constructor stub
-		setCreativeTab(CreativeTabs.tabBrewing);
+		setCreativeTab(ModJam13.creativeTab);
 		setUnlocalizedName("ultrapotion" + mark);
 	}
 	
