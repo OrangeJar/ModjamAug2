@@ -21,6 +21,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraftforge.common.MinecraftForge;
 
 
 @Mod(name = "OrangeJar-Modjam13", version = "0.0.1", useMetadata = false, modid = "OrangeJar-ModJam13|Core", dependencies = "required-after:Forge@[7.7.2.682,)")
@@ -44,6 +45,7 @@ public class ModJam13  {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
    	 Proxy.InitRendering();
+   	 MinecraftForge.EVENT_BUS.register(new org.orangejar.modjam13.SoundHandler());
     }
     
     @EventHandler

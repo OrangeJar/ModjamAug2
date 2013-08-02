@@ -12,8 +12,11 @@
  */
 package org.orangejar.modjam13;
 
+import java.io.File;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityEgg;
@@ -32,6 +35,7 @@ public class Item1911 extends Item {
         setCreativeTab(ModJam13.creativeTab);
 
     }
+    
 
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
@@ -39,7 +43,11 @@ public class Item1911 extends Item {
         {
             --par1ItemStack.stackSize;
         }
-        par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        //par2World.playSoundAtEntity(par3EntityPlayer, "ironforge", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        //par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1F, 1F);
+        //par2World.playSoundAtEntity(par3EntityPlayer, "modjam13.bang", 1.0F, 1.0F);
+        par3EntityPlayer.worldObj.playSoundAtEntity(par3EntityPlayer, "modjam13:plgunc", 1.0F, 1.0F);
+        
         if (!par2World.isRemote)
         {
             par2World.spawnEntityInWorld(new EntityBullet1911(par2World, par3EntityPlayer));
